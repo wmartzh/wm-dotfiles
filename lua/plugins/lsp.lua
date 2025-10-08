@@ -28,14 +28,17 @@ return {
     local capabilities = require('blink.cmp').get_lsp_capabilities(capabilitiesOpts)
 
     local on_attach = function(_, bufnr)
-      -- Keymap for formatting
-      vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, {
-        buffer = bufnr,
-        desc = "Format file with LSP",
-      })
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
         buffer = bufnr,
         desc = "Go to definition",
+      })
+      vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, {
+        buffer = bufnr,
+        desc = "Go to type definition",
+      })
+      vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, {
+        buffer = bufnr,
+        desc = "Go to type definition",
       })
       vim.keymap.set("n", "gr", "<cmd>FzfLua lsp_references<cr>", {
         buffer = bufnr,
@@ -59,13 +62,26 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     }
+
     local lua_ls = require("config.lsp_servers.lua_ls")
+    -- local ts_ls = require("config.lsp_servers.ts_ls")
     -- config lua server
     vim.lsp.config('lua_ls', vim.tbl_deep_extend('force', default_config, lua_ls))
 
-    vim.lsp.config('ts_ls', default_config)
+    vim.lsp.config('deno', {
+      settings = {
+        deno = {
+          enable = true,
+          lint = true,
+        },
+      },
+      root_markers = { { "deno.json", "deno.jsonc" } },
 
-    vim.lsp.enable('lua_ls')
-    vim.lsp.enable('ts_ls')
+    })
+
+    vim.lsp.enable({
+      'lua_ls',
+      -- 'denols'
+    })
   end
 }

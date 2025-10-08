@@ -17,8 +17,10 @@ return {
     }
   },
   keys = {
-    { "<leader>ff", "<cmd>FzfLua files<cr>",             desc = "Find Files" },
-    { "<leader>fr", "<cmd>FzfLua files resume=true<cr>", desc = "Find Files" },
+    { "<leader>ff", "<cmd>FzfLua files layout=reverse<cr>", desc = "Find Files" },
+    { "<leader>fF", "<cmd>FzfLua files resume=true<cr>",    desc = "Find Files Resume" },
+    { "<leader>fr", "<cmd>FzfLua lsp_references<cr>",       desc = "Find Files Resume" },
+
 
     -- Live Grep
     {

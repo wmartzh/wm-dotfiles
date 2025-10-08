@@ -1,0 +1,18 @@
+{
+  "diagnostic": {
+    "signs": true,
+    "virtualText": true,
+    "virtualTextLevel": "warning",
+    "virtualTextPrefix": "❯ ",
+    "underline": true,
+    "errorSign": "",
+    "warningSign": "",
+    "infoSign": "",
+    "hintSign": "💡"
+  },
+  "tsserver.enable": true,
+  "tsserver.useLocalTsdk": true,
+  "tsserver.maxTsServerMemory": 3072,
+  "typescript.preferences.autoImportFileExcludePatterns": ["**/node_modules/**"],
+  "typescript.format.insertSpaceAfterCommaDelimiter": true
+}

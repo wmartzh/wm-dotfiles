@@ -7,9 +7,9 @@ return {
       "MunifTanjim/nui.nvim",
       "nvim-tree/nvim-web-devicons", -- optional, but recommended
     },
-    lazy = false, -- neo-tree will lazily load itself
+    lazy = false,                    -- neo-tree will lazily load itself
     keys = {
-	     {
+      {
         "<leader>e",
         function()
           vim.cmd.Neotree "toggle"
@@ -17,7 +17,9 @@ return {
         desc = "Explorer NeoTree"
       },
     },
-     opts = {
+    opts = {
+      close_if_last_window = true,
+      popup_border_style = "rounded",
       window = {
         statusline = "",
       }
