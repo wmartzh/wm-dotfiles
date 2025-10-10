@@ -4,6 +4,7 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons'
   },
+  enabled = false,
   opts = {
     options = {
       -- Disable mouse clicks to close buffers
@@ -26,14 +27,14 @@ return {
       -- Show close icons
       show_close_icon = true,
       diagnostics_indicator = function(count, level, diagnostics_dict, context)
-  local s = " "
-  for e, n in pairs(diagnostics_dict) do
-    local sym = e == "error" and " "
-      or (e == "warning" and " " or " ")
-    s = s .. n .. sym
-  end
-  return s
-end
+        local s = " "
+        for e, n in pairs(diagnostics_dict) do
+          local sym = e == "error" and " "
+              or (e == "warning" and " " or " ")
+          s = s .. n .. sym
+        end
+        return s
+      end
 
     }
   },

@@ -3,14 +3,10 @@ return {
     "nvim-lualine/lualine.nvim",
     opts = {
       options = {
-        theme = "tokyonight",
-       component_separators = { left = "", right = "" },
-      section_separators = { left = "", right = "" },
-      disabled_filetypes = {
-        statusline = {},
-        winbar = {},
-      },
-      always_divide_middle = true,
+        theme = "auto",
+        component_separators = '',
+        section_separators = '',
+        always_divide_middle = true,
       },
       refresh = {
         statusline = 1500,
@@ -19,10 +15,33 @@ return {
       },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "lsp_status" },
-        lualine_x = {},
+        lualine_b = { "lsp_status",
+          {
+            "filename",
+            path = 1,
+            symbols = {
+              modified = '  ', -- Text to show when the file is modified.
+              readonly = '󰷋 ', -- Text to show when the file is non-modifiable or readonly.
+              unnamed = '[No Name]', -- Text to show for unnamed buffers.
+              newfile = ' ', -- Text to show for newly created file before first write
+            }
+          },
+        },
+        lualine_c = {},
+        lualine_x = {
+          "filetype",
+          {
+            'diagnostics',
+            symbols = { error = ' ', warn = ' ', info = ' ', hint = '󰌵 ' }
+          },
+
+        },
         lualine_y = {
-          { "progress", separator = " ", padding = { left = 1, right = 0 } },
+          {
+            "progress",
+            separator = " ",
+            padding = { left = 1, right = 0 }
+          },
           { "location", padding = { left = 0, right = 1 } },
         },
         lualine_z = {},

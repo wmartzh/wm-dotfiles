@@ -3,7 +3,7 @@ local log_level = 'info'
 vim.g.have_nerd_font = true
 
 -- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
+-- cim.g.loaded_netrwPlugin = 1
 
 -- [Options]
 vim.opt.termguicolors = true
@@ -95,4 +95,3 @@ vim.api.nvim_create_autocmd("UIEnter", {
     end
   end,
 })
-
