@@ -4,9 +4,8 @@ vim.g.have_nerd_font = true
 
 -- vim.g.loaded_netrw = 1
 -- cim.g.loaded_netrwPlugin = 1
-
+vim.o.termguicolors = true
 -- [Options]
-vim.opt.termguicolors = true
 
 -- Set tab width to 2 spaces
 vim.opt.tabstop = 2

@@ -79,8 +79,12 @@ return {
 
     })
 
+    vim.lsp.config('gopls', default_config)
+
+
     vim.lsp.enable({
       'lua_ls',
+      'gopls',
       -- 'denols'
     })
   end
