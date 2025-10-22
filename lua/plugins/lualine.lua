@@ -14,11 +14,21 @@ return {
         winbar = 1500,
       },
       sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "lsp_status",
+        lualine_a = {
+          "mode",
+        },
+        lualine_b = {
+          {
+            function()
+              local icon = " "
+              local folder_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+              return icon .. folder_name
+            end,
+          },
+          "lsp_status",
           {
             "filename",
-            path = 1,
+            path = 0,
             symbols = {
               modified = '  ', -- Text to show when the file is modified.
               readonly = '󰷋 ', -- Text to show when the file is non-modifiable or readonly.
@@ -46,7 +56,7 @@ return {
         },
         lualine_z = {},
       },
-      extensions = { "neo-tree" }
+      extensions = { "neo-tree", "fzf" }
     },
   },
 }

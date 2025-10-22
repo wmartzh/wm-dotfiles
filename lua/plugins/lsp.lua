@@ -36,10 +36,6 @@ return {
         buffer = bufnr,
         desc = "Go to type definition",
       })
-      vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, {
-        buffer = bufnr,
-        desc = "Go to type definition",
-      })
       vim.keymap.set("n", "gr", "<cmd>FzfLua lsp_references<cr>", {
         buffer = bufnr,
         desc = "Go to references (FZF)",
