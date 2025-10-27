@@ -16,6 +16,9 @@ return {
       }
     }
   },
+  opts = {
+    automatic_enable = true
+  },
   config = function()
     local capabilitiesOpts = {
       textDocument = {
@@ -31,6 +34,10 @@ return {
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
         buffer = bufnr,
         desc = "Go to definition",
+      })
+      vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, {
+        buffer = bufnr,
+        desc = "Go to type definition",
       })
       vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, {
         buffer = bufnr,

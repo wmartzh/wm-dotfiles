@@ -84,13 +84,13 @@ vim.diagnostic.config({
 
 vim.notify = require("notify")
 
-vim.api.nvim_create_autocmd("UIEnter", {
-  pattern = "*",
-  callback = function()
-    -- Check if there is only one buffer and it is empty
-    if #vim.api.nvim_list_bufs() == 1 and vim.api.nvim_buf_get_name(0) == "" then
-      -- Delete the buffer
-      vim.cmd("bdelete")
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("UIEnter", {
+--   pattern = "*",
+--   callback = function()
+--     -- Check if there is only one buffer and it is empty
+--     if #vim.api.nvim_list_bufs() == 1 and vim.api.nvim_buf_get_name(0) == "" then
+--       -- Delete the buffer
+--       vim.cmd("bdelete")
+--     end
+--   end,
+-- })
