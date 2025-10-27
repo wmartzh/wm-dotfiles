@@ -1,10 +1,25 @@
 local log_level = 'info'
+
+vim.o.clipboard = 'unnamedplus'
+
 --- [Global]
 vim.g.have_nerd_font = true
-
+vim.g.clipboard = {
+  name = 'macOS-clipboard',
+  copy = {
+    ['+'] = 'pbcopy',
+    ['*'] = 'pbcopy',
+  },
+  paste = {
+    ['+'] = 'pbpaste',
+    ['*'] = 'pbpaste',
+  },
+  cache_enabled = 0,
+}
 -- vim.g.loaded_netrw = 1
 -- cim.g.loaded_netrwPlugin = 1
 vim.o.termguicolors = true
+
 -- [Options]
 
 -- Set tab width to 2 spaces
@@ -17,9 +32,7 @@ vim.opt.cursorline = true
 vim.o.number = true
 vim.opt.relativenumber = true -- Show relative numbers for all other lines
 
-vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
-end)
+
 
 -- Enable break indent
 vim.o.breakindent = true
