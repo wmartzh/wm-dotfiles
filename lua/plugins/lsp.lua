@@ -38,10 +38,6 @@ return {
 				buffer = bufnr,
 				desc = "Go to type definition",
 			})
-			vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, {
-				buffer = bufnr,
-				desc = "Go to type definition",
-			})
 			vim.keymap.set("n", "gr", function()
 				require("fzf-lua").lsp_references()
 			end, {
@@ -68,9 +64,9 @@ return {
 		}
 
 		local lua_ls = require("config.lsp_servers.lua_ls")
+		local vtsls = require("config.lsp_servers.vtsls")
 		-- local ts_ls = require("config.lsp_servers.ts_ls")
 		-- config lua server
-		vim.lsp.config("lua_ls", vim.tbl_deep_extend("force", default_config, lua_ls))
 
 		vim.lsp.config("deno", {
 			settings = {
@@ -82,12 +78,14 @@ return {
 			root_markers = { { "deno.json", "deno.jsonc" } },
 		})
 
+		vim.lsp.config("lua_ls", vim.tbl_deep_extend("force", default_config, lua_ls))
+		-- vim.lsp.config("lua_ls", vim.tbl_deep_extend("force", default_config, ts_ls))
+		vim.lsp.config("vtsls", vim.tbl_deep_extend("force", default_config, vtsls))
 		vim.lsp.config("gopls", default_config)
-
 		vim.lsp.enable({
 			"lua_ls",
 			"gopls",
-			-- 'denols'
+			"vtsls",
 		})
 	end,
 }
