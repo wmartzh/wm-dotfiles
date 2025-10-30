@@ -3,6 +3,7 @@ return {
 	event = "VeryLazy",
 	opts = {
 
+		enabled = false,
 		lsp = {
 			override = {
 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,

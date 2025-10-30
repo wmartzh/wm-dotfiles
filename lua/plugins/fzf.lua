@@ -40,69 +40,69 @@ return {
 			},
 		},
 	},
-	keys = {
-		{
-			"<leader>ff",
-			function()
-				require("fzf-lua").files({ layout = "reverse" })
-			end,
-			desc = "Find Files",
-		},
-		{
-			"<leader>fF",
-			function()
-				require("fzf-lua").files({ resume = true })
-			end,
-			desc = "Find Files Resume",
-		},
-		{
-			"gr",
-			function()
-				require("fzf-lua").lsp_references()
-			end,
-			desc = "Show LSP references",
-		},
-		{
-			"<leader>fd",
-			function()
-				require("fzf-lua").lsp_declarations()
-			end,
-			desc = "Show LSP declarations",
-		},
-		{
-			"gt",
-			function()
-				require("fzf-lua").lsp_typedefs()
-			end,
-			desc = "Show LSP type definitions",
-		},
-		{
-			"<leader>fa",
-			function()
-				require("fzf-lua").lsp_document_symbols()
-			end,
-			desc = "Show LSP Document Symbols",
-		},
-		{
-			"<leader>fg",
-			function()
-				require("fzf-lua").git_status()
-			end,
-			desc = "Git Status",
-		},
-		{
-			"<leader>fb",
-			function()
-				require("fzf-lua").buffers()
-			end,
-			desc = "Show current buffers",
-		},
-		{
-			"<leader>/",
-			function()
-				require("fzf-lua").live_grep()
-			end,
-			desc = "Live Grep",
-		},
-	},
+	-- keys = {
+	-- 	{
+	-- 		"<leader>ff",
+	-- 		function()
+	-- 			require("fzf-lua").files({ layout = "reverse" })
+	-- 		end,
+	-- 		desc = "Find Files",
+	-- 	},
+	-- 	{
+	-- 		"<leader>fF",
+	-- 		function()
+	-- 			require("fzf-lua").files({ resume = true })
+	-- 		end,
+	-- 		desc = "Find Files Resume",
+	-- 	},
+	-- 	{
+	-- 		"gr",
+	-- 		function()
+	-- 			require("fzf-lua").lsp_references()
+	-- 		end,
+	-- 		desc = "Show LSP references",
+	-- 	},
+	-- 	{
+	-- 		"<leader>fd",
+	-- 		function()
+	-- 			require("fzf-lua").lsp_declarations()
+	-- 		end,
+	-- 		desc = "Show LSP declarations",
+	-- 	},
+	-- 	{
+	-- 		"gt",
+	-- 		function()
+	-- 			require("fzf-lua").lsp_typedefs()
+	-- 		end,
+	-- 		desc = "Show LSP type definitions",
+	-- 	},
+	-- 	{
+	-- 		"<leader>fa",
+	-- 		function()
+	-- 			require("fzf-lua").lsp_document_symbols()
+	-- 		end,
+	-- 		desc = "Show LSP Document Symbols",
+	-- 	},
+	-- 	{
+	-- 		"<leader>fg",
+	-- 		function()
+	-- 			require("fzf-lua").git_status()
+	-- 		end,
+	-- 		desc = "Git Status",
+	-- 	},
+	-- 	-- {
+	-- 	-- 	"<leader>fb",
+	-- 	-- 	function()
+	-- 	-- 		require("fzf-lua").buffers()
+	-- 	-- 	end,
+	-- 	-- 	desc = "Show current buffers",
+	-- 	-- },
+	-- 	{
+	-- 		"<leader>/",
+	-- 		function()
+	-- 			require("fzf-lua").live_grep()
+	-- 		end,
+	-- 		desc = "Live Grep",
+	-- 	},
+	-- },
 }

@@ -30,32 +30,32 @@ return {
 		local capabilities = require("blink.cmp").get_lsp_capabilities(capabilitiesOpts)
 
 		local on_attach = function(_, bufnr)
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
-				buffer = bufnr,
-				desc = "Go to definition",
-			})
-			vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, {
-				buffer = bufnr,
-				desc = "Go to type definition",
-			})
-			vim.keymap.set("n", "gr", function()
-				require("fzf-lua").lsp_references()
-			end, {
-				buffer = bufnr,
-				desc = "Go to references (FZF)",
-			})
-			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {
-				buffer = bufnr,
-				desc = "Go to implementation",
-			})
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {
-				buffer = bufnr,
-				desc = "Rename symbol",
-			})
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {
-				buffer = bufnr,
-				desc = "See code actions",
-			})
+			-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
+			-- 	buffer = bufnr,
+			-- 	desc = "Go to definition",
+			-- })
+			-- vim.keymap.set("n", "gD", vim.lsp.buf.type_definition, {
+			-- 	buffer = bufnr,
+			-- 	desc = "Go to type definition",
+			-- })
+			-- vim.keymap.set("n", "gr", function()
+			-- 	require("fzf-lua").lsp_references()
+			-- end, {
+			-- 	buffer = bufnr,
+			-- 	desc = "Go to references (FZF)",
+			-- })
+			-- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {
+			-- 	buffer = bufnr,
+			-- 	desc = "Go to implementation",
+			-- })
+			-- vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {
+			-- 	buffer = bufnr,
+			-- 	desc = "Rename symbol",
+			-- })
+			-- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {
+			-- 	buffer = bufnr,
+			-- 	desc = "See code actions",
+			-- })
 		end
 
 		local default_config = {
