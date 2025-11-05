@@ -2,7 +2,6 @@ return {
 	"ibhagwan/fzf-lua",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
-		"nvim-mini/mini.nvim",
 	},
 	opts = {
 		glyph_icons = true,

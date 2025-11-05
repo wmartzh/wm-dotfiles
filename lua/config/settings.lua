@@ -51,6 +51,14 @@ vim.o.updatetime = 250
 vim.o.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
+-- Folding
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldcolumn = "1"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
 -- [Vim commans]
 
 vim.cmd.colorscheme("tokyonight")
@@ -92,17 +100,17 @@ vim.diagnostic.config({
 -- vim.notify = require("notify")
 
 -- notify
-vim.api.nvim_create_autocmd("LspProgress", {
-	---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
-	callback = function(ev)
-		local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-		vim.notify(vim.lsp.status(), "info", {
-			id = "lsp_progress",
-			title = "LSP Progress",
-			opts = function(notif)
-				notif.icon = ev.data.params.value.kind == "end" and " "
-					or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
-			end,
-		})
-	end,
-})
+-- vim.api.nvim_create_autocmd("LspProgress", {
+-- 	---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
+-- 	callback = function(ev)
+-- 		local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+-- 		vim.notify(vim.lsp.status(), "info", {
+-- 			id = "lsp_progress",
+-- 			title = "LSP Progress",
+-- 			opts = function(notif)
+-- 				notif.icon = ev.data.params.value.kind == "end" and " "
+-- 					or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+-- 			end,
+-- 		})
+-- 	end,
+-- })
