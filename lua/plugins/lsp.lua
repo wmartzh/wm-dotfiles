@@ -65,6 +65,7 @@ return {
 
 		local lua_ls = require("config.lsp_servers.lua_ls")
 		local vtsls = require("config.lsp_servers.vtsls")
+		local gopls = require("config.lsp_servers.gopls")
 		-- local ts_ls = require("config.lsp_servers.ts_ls")
 		-- config lua server
 
@@ -81,7 +82,7 @@ return {
 		vim.lsp.config("lua_ls", vim.tbl_deep_extend("force", default_config, lua_ls))
 		-- vim.lsp.config("lua_ls", vim.tbl_deep_extend("force", default_config, ts_ls))
 		vim.lsp.config("vtsls", vim.tbl_deep_extend("force", default_config, vtsls))
-		vim.lsp.config("gopls", default_config)
+		vim.lsp.config("gopls", vim.tbl_deep_extend("force", default_config, gopls))
 		vim.lsp.enable({
 			"lua_ls",
 			"gopls",
