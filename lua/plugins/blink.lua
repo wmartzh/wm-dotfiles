@@ -1,8 +1,8 @@
 return {
 	"saghen/blink.cmp", -- This is the correct repository
 	dependencies = { "rafamadriz/friendly-snippets" },
-	build = "rustup run nightly cargo build --release",
-	-- version = '1.*',
+	-- build = "rustup run nightly cargo build --release",
+	version = "1.*",
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
