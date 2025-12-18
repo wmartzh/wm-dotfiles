@@ -1,17 +1,57 @@
 return {
 	settings = {
 		vtsls = {
+			autoUseWorkspaceTsdk = true,
 			experimental = {
 				completion = {
-					-- This enables server-side fuzzy matching,
-					-- which can be faster.
 					enableServerSideFuzzyMatch = true,
+					entriesLimit = 50,
+				},
+				maxInlayHintLength = 0,
+			},
+		},
+		typescript = {
+			tsdk = "node_modules/typescript/lib",
+			preferences = {
+				importModuleSpecifier = "relative",
+			},
+			inlayHints = {
+				parameterNames = { enabled = "none" },
+				parameterTypes = { enabled = false },
+				variableTypes = { enabled = false },
+				propertyDeclarationTypes = { enabled = false },
+				functionLikeReturnTypes = { enabled = false },
+				enumMemberValues = { enabled = false },
+			},
+			suggest = {
+				completeFunctionCalls = false,
+			},
+			tsserver = {
+				maxTsServerMemory = 4096,
+				watchOptions = {
+					excludeDirectories = {
+						"**/node_modules",
+						"**/.git",
+						"**/dist",
+						"**/.angular",
+						"**/coverage",
+						"**/tmp",
+					},
 				},
 			},
 		},
-		-- Ensure the workspace version of TypeScript is used
-		typescript = {
-			tsdk = "node_modules/typescript/lib",
+		javascript = {
+			inlayHints = {
+				parameterNames = { enabled = "none" },
+				parameterTypes = { enabled = false },
+				variableTypes = { enabled = false },
+				propertyDeclarationTypes = { enabled = false },
+				functionLikeReturnTypes = { enabled = false },
+				enumMemberValues = { enabled = false },
+			},
+			suggest = {
+				completeFunctionCalls = false,
+			},
 		},
 	},
 }

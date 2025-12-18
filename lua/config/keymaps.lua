@@ -30,7 +30,7 @@ map("n", "<leader>ce", vim.diagnostic.open_float, { desc = "Open floating diagno
 map("n", "<leader>cq", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 map({ "n", "v" }, "<leader>f", function()
-	require("conform").format({ lsp_fallback = true, async = false, timeout_ms = 500 })
+	require("conform").format({ lsp_fallback = true, async = true, timeout_ms = 1000 })
 end, { desc = "Format file or range (Conform)" })
 
 -- Lazy

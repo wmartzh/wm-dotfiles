@@ -7,7 +7,10 @@ return {
 		-- your configuration comes here
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
-		bigfile = { enabled = true },
+		bigfile = {
+			enabled = true,
+			size = 1024 * 100, -- 100KB threshold for big file detection
+		},
 		dashboard = { enabled = false },
 		explorer = { enabled = false },
 		indent = { enabled = true },
@@ -29,10 +32,13 @@ return {
 		},
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
-		scope = { enabled = true },
+		scope = { enabled = false }, -- Disabled: adds overhead tracking scope
 		scroll = { enabled = false },
 		statuscolumn = { enabled = true },
-		words = { enabled = true },
+		words = {
+			enabled = true,
+			debounce = 300, -- Add debounce to reduce word highlight frequency
+		},
 	},
 	keys = {
 		{

@@ -14,7 +14,7 @@ vim.g.clipboard = {
 		["+"] = "pbpaste",
 		["*"] = "pbpaste",
 	},
-	cache_enabled = 0,
+	cache_enabled = 1,
 }
 -- vim.g.loaded_netrw = 1
 -- cim.g.loaded_netrwPlugin = 1
@@ -48,12 +48,17 @@ vim.o.signcolumn = "yes"
 -- Decrease update time
 vim.o.updatetime = 250
 
+-- Matchparen performance (reduce timeout in insert mode)
+vim.g.matchparen_timeout = 100
+vim.g.matchparen_insert_timeout = 30
+
 vim.o.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
--- Folding
+-- Folding (using native treesitter folding - faster than nvim-treesitter)
 vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldtext = ""
 vim.o.foldcolumn = "1"
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99

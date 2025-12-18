@@ -27,6 +27,19 @@ return {
 		completion = {
 			trigger = {
 				show_on_keyword = true,
+				show_in_snippet = false,
+			},
+			list = {
+				max_items = 50,
+			},
+			menu = {
+				draw = {
+					treesitter = { "lsp" },
+				},
+			},
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 200,
 			},
 		},
 		appearance = {
@@ -34,6 +47,15 @@ return {
 		},
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
+			providers = {
+				buffer = {
+					max_items = 5,
+					min_keyword_length = 3,
+				},
+				lsp = {
+					async = true,
+				},
+			},
 		},
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},
