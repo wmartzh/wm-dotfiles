@@ -22,7 +22,7 @@ return {
 			["<C-b>"] = { "scroll_documentation_up", "fallback" },
 			["<C-f>"] = { "scroll_documentation_down", "fallback" },
 
-			["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+			["<M-k>"] = { "show_signature", "hide_signature", "fallback" },
 		},
 		completion = {
 			trigger = {
