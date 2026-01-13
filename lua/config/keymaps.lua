@@ -28,6 +28,8 @@ map("n", "<leader>bd", "<Cmd>bdelete<CR>", opts)
 -- LSP Diagnostic keymaps
 map("n", "<leader>ce", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 map("n", "<leader>cq", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+-- TS Pretty
+vim.keymap.set("n", "<leader>ct", require("nvim-pretty-ts-errors").show_line_diagnostics)
 
 map({ "n", "v" }, "<leader>f", function()
 	require("conform").format({ lsp_fallback = true, async = true, timeout_ms = 1000 })

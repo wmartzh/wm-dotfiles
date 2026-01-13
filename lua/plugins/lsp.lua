@@ -50,7 +50,7 @@ return {
 			"rust_analyzer",
 			vim.tbl_deep_extend("force", default_config, {
 				settings = {
-					["rust_analyzer"] = {
+					["rust-analyzer"] = {
 						cargo = {
 							allFeatures = false,
 							buildScripts = {
@@ -75,6 +75,21 @@ return {
 							experimental = {
 								enable = false,
 							},
+						},
+						-- Disable lens features for performance
+						lens = {
+							enable = false,
+						},
+						-- Disable inlay hints for performance
+						inlayHints = {
+							chainingHints = { enable = false },
+							parameterHints = { enable = false },
+							typeHints = { enable = false },
+						},
+						-- Completion performance
+						completion = {
+							limit = 50,
+							autoimport = { enable = true },
 						},
 					},
 				},

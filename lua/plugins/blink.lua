@@ -28,35 +28,64 @@ return {
 			trigger = {
 				show_on_keyword = true,
 				show_in_snippet = false,
+				-- Debounce to reduce trigger frequency
+				debounce_ms = 100,
 			},
 			list = {
-				max_items = 50,
+				max_items = 30, -- Reduced for faster rendering
+				selection = {
+					preselect = true,
+					auto_insert = false,
+				},
 			},
 			menu = {
 				draw = {
-					treesitter = { "lsp" },
+					-- Simpler columns for faster rendering
+					columns = { { "kind_icon" }, { "label", "label_description", gap = 1 } },
 				},
 			},
 			documentation = {
 				auto_show = true,
-				auto_show_delay_ms = 200,
+				auto_show_delay_ms = 500, -- Increased delay to not block completion
+				window = {
+					border = "single",
+				},
 			},
+			-- Ghost text can slow things down
+			ghost_text = { enabled = false },
 		},
 		appearance = {
 			nerd_font_variant = "mono",
 		},
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
+			-- Per-source timeout
 			providers = {
 				buffer = {
-					max_items = 5,
-					min_keyword_length = 3,
+					max_items = 3,
+					min_keyword_length = 4, -- Increased to reduce buffer scanning
+					score_offset = -3, -- Lower priority
 				},
 				lsp = {
 					async = true,
+					timeout_ms = 2000, -- Timeout slow LSP responses
+					score_offset = 10, -- Higher priority
+				},
+				path = {
+					max_items = 5,
+				},
+				snippets = {
+					max_items = 5,
+					score_offset = -1,
 				},
 			},
 		},
-		fuzzy = { implementation = "prefer_rust_with_warning" },
+		-- Signature help
+		signature = {
+			enabled = true,
+			window = {
+				border = "single",
+			},
+		},
 	},
 }

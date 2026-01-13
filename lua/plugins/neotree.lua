@@ -7,9 +7,8 @@ return {
       "MunifTanjim/nui.nvim",
       "nvim-tree/nvim-web-devicons", -- optional, but recommended
     },
-    lazy = false,                    -- neo-tree will lazily load itself
-    config = true,
-    event = "VimEnter",
+    lazy = true, -- Lazy load on keymap
+    cmd = "Neotree",
     keys = {
       {
         "<leader>e",
@@ -36,7 +35,7 @@ return {
         },
       },
       filesystem = {
-        hijack_netrw_behavior = "open_current",
+        hijack_netrw_behavior = "disabled", -- Disabled to prevent E325 swap file errors
       },
       components = {
         header = {
