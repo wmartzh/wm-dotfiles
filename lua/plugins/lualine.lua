@@ -9,9 +9,9 @@ return {
         always_divide_middle = true,
       },
       refresh = {
-        statusline = 1500,
-        tabline = 1500,
-        winbar = 1500,
+        statusline = 3000,
+        tabline = 3000,
+        winbar = 3000,
       },
       sections = {
         lualine_a = {

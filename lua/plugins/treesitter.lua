@@ -2,7 +2,6 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		branch = "master",
-		lazy = false,
 		build = ":TSUpdate",
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
@@ -19,7 +18,7 @@ return {
 					"markdown",
 					"yaml",
 					"dot",
-					"rust",
+					"rust"
 				},
 				sync_install = false, -- Async install for better UX
 				auto_install = true,

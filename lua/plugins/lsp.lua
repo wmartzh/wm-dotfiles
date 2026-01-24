@@ -41,60 +41,13 @@ return {
 		local gopls = require("config.lsp_servers.gopls")
 		local deno = require("config.lsp_servers.denols")
 		local clangd = require("config.lsp_servers.clangd")
+		local rust_analyzer = require("config.lsp_servers.rust_analyzer")
 		-- local ts_ls = require("config.lsp_servers.ts_ls")
 		-- config lua server
 
 		vim.lsp.config("lua_ls", vim.tbl_deep_extend("force", default_config, lua_ls))
 		vim.lsp.config("clangd", vim.tbl_deep_extend("force", default_config, clangd))
-		vim.lsp.config(
-			"rust_analyzer",
-			vim.tbl_deep_extend("force", default_config, {
-				settings = {
-					["rust-analyzer"] = {
-						cargo = {
-							allFeatures = false,
-							buildScripts = {
-								enable = false,
-							},
-						},
-						check = {
-							command = "check",
-						},
-						checkOnSave = true,
-						procMacro = {
-							enable = true,
-							attributes = {
-								enable = false,
-							},
-						},
-						files = {
-							excludeDirs = { ".git", "target", "node_modules" },
-						},
-						diagnostics = {
-							enable = true,
-							experimental = {
-								enable = false,
-							},
-						},
-						-- Disable lens features for performance
-						lens = {
-							enable = false,
-						},
-						-- Disable inlay hints for performance
-						inlayHints = {
-							chainingHints = { enable = false },
-							parameterHints = { enable = false },
-							typeHints = { enable = false },
-						},
-						-- Completion performance
-						completion = {
-							limit = 50,
-							autoimport = { enable = true },
-						},
-					},
-				},
-			})
-		)
+		vim.lsp.config("rust_analyzer", vim.tbl_deep_extend("force", default_config, rust_analyzer))
 		-- vim.lsp.config("lua_ls", vim.tbl_deep_extend("force", default_config, ts_ls))
 		vim.lsp.config("vtsls", vim.tbl_deep_extend("force", default_config, vtsls))
 		vim.lsp.config("gopls", vim.tbl_deep_extend("force", default_config, gopls))

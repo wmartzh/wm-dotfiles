@@ -16,8 +16,8 @@ vim.keymap.set("n", "<C-e>", function()
 	require("telescope").extensions.harpoon.marks()
 end)
 
-vim.keymap.set("n", "C-d", function()
-	harpoon.list():remove()
+vim.keymap.set("n", "<C-d>", function()
+	harpoon:list():remove()
 	vim.notify("󱡀 Harpoon: Removed ", vim.log.levels.ERROR)
 end)
 

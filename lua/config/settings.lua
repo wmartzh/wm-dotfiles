@@ -1,9 +1,6 @@
-local log_level = "info"
-
-vim.o.clipboard = "unnamedplus"
-
 --- [Global]
 vim.g.have_nerd_font = true
+vim.o.clipboard = "unnamedplus"
 vim.g.clipboard = {
 	name = "macOS-clipboard",
 	copy = {
@@ -17,7 +14,7 @@ vim.g.clipboard = {
 	cache_enabled = 1,
 }
 -- vim.g.loaded_netrw = 1
--- cim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrwPlugin = 1
 vim.o.termguicolors = true
 
 -- [Options]
@@ -102,4 +99,12 @@ vim.diagnostic.config({
 	update_in_insert = false,
 })
 
-require("config.harpoon_config")
+-- require("config.harpoon_config")
+
+-- Filetype detection for lex/yacc
+vim.filetype.add({
+	extension = {
+		l = "lex",
+		y = "yacc",
+	},
+})

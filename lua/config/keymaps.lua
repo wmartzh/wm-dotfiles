@@ -40,3 +40,15 @@ map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- Mason
 map("n", "<leader>cm", "<cmd>Mason<cr>", { desc = "Mason" })
+
+vim.keymap.set("n", "]t", function()
+	require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+	require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+
+vim.keymap.set("n", "]t", function()
+	require("todo-comments").jump_next({ keywords = { "ERROR", "WARNING" } })
+end, { desc = "Next error/warning todo comment" })
