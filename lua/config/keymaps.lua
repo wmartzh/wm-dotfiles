@@ -25,14 +25,14 @@ map("n", "<leader>bl", "<Cmd>ls<CR>", opts)
 -- <leader>bd -> Buffer Delete (closes the current buffer)
 map("n", "<leader>bd", "<Cmd>bdelete<CR>", opts)
 
--- LSP Diagnostic keymaps
-map("n", "<leader>ce", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-map("n", "<leader>cq", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+-- LSP Diagnostic keymaps (disabled: using CoC instead, see coc_config.lua)
+-- map("n", "<leader>ce", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+-- map("n", "<leader>cq", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 -- TS Pretty
 vim.keymap.set("n", "<leader>ct", require("nvim-pretty-ts-errors").show_line_diagnostics)
 
 map({ "n", "v" }, "<leader>f", function()
-	require("conform").format({ lsp_fallback = true, async = true, timeout_ms = 1000 })
+	require("conform").format({ lsp_format = "fallback", async = false, timeout_ms = 3000 })
 end, { desc = "Format file or range (Conform)" })
 
 -- Lazy
@@ -52,3 +52,6 @@ end, { desc = "Previous todo comment" })
 vim.keymap.set("n", "]t", function()
 	require("todo-comments").jump_next({ keywords = { "ERROR", "WARNING" } })
 end, { desc = "Next error/warning todo comment" })
+
+-- Gi blame
+map("n", "<Leader>gbb", "<Cmd>BlameToggle<CR>", opts)

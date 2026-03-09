@@ -39,6 +39,21 @@ return {
         },
         lualine_c = {},
         lualine_x = {
+          {
+            function()
+              local status = vim.g.coc_status or ""
+              if status ~= "" then
+                return " " .. status
+              end
+              if vim.fn.exists("*coc#rpc#ready") == 1 then
+                return ""
+              end
+              return ""
+            end,
+            cond = function()
+              return vim.fn.exists("*coc#rpc#ready") == 1
+            end,
+          },
           "filetype",
           {
             'diagnostics',

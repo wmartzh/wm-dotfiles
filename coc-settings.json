@@ -1,18 +1,73 @@
 {
+  "coc.preferences.maxCompleteItemCount":50,
   "diagnostic": {
     "signs": true,
     "virtualText": true,
     "virtualTextLevel": "warning",
-    "virtualTextPrefix": "❯ ",
+    "virtualTextPrefix": "󰬫 ",
     "underline": true,
-    "errorSign": "",
-    "warningSign": "",
-    "infoSign": "",
-    "hintSign": "💡"
+    "errorSign": " ",
+    "warningSign": " ",
+    "infoSign": " ",
+    "hintSign": " "
+  },
+  "suggest": {
+    "timeout": 5000,
+    "noselect": false,
+    "enablePreselect": true,
+    "triggerAfterInsertEnter": false,
+    "autoTrigger": "always",
+    "minTriggerInputLength": 2,
+    "maxCompleteItemCount": 30
   },
   "tsserver.enable": true,
-  "tsserver.useLocalTsdk": true,
-  "tsserver.maxTsServerMemory": 3072,
-  "typescript.preferences.autoImportFileExcludePatterns": ["**/node_modules/**"],
-  "typescript.format.insertSpaceAfterCommaDelimiter": true
+  "tsserver.useLocalTsdk": false,
+  "tsserver.maxTsServerMemory": 4096,
+  "tsserver.disableAutomaticTypeAcquisition": false,
+  "tsserver.implicitProjectConfig.checkJs": false,
+  "tsserver.enableTracing": false,
+  "tsserver.reportStyleChecksAsWarnings": true,
+  "tsserver.implicitProjectConfig.module": "NodeNext",
+  "tsserver.useSyntaxServer": "auto",
+
+
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "**/dist/**",
+    "**/build/**"
+  ],
+  "typescript.suggest.autoImports": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifierEnding": "minimal",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.suggest.completeFunctionCalls": false,
+  "typescript.suggest.includeCompletionsForImportStatements": true,
+  "typescript.preferences.includePackageJsonAutoImports": "auto",
+  "typescript.workspaceSymbols.scope": "currentProject",
+  "typescript.format.insertSpaceAfterCommaDelimiter": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "javascript.preferences.quoteStyle": "single",
+  "javascript.suggest.autoImports": true,
+  "javascript.suggest.completeFunctionCalls": false,
+
+
+  "suggest.acceptSuggestionOnCommitCharacter": true,
+  "suggest.snippetIndicator": " ➜",
+
+  "rust-analyzer.enable": true,
+  "rust-analyzer.cargo.buildScripts.enable": true,
+  "rust-analyzer.cargo.target": "target/ra",
+  "rust-analyzer.procMacro.enable": false,
+  "rust-analyzer.check.command": "clippy",
+  "rust-analyzer.completion.autoimport.enable": true,
+
+  "clangd.enabled": true,
+  "clangd.path": "clangd",
+  "clangd.arguments": [
+    "--background-index",
+    "--clang-tidy",
+    "--completion-style=detailed",
+    "--header-insertion=iwyu"
+  ]
 }

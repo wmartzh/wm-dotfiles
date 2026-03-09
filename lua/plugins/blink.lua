@@ -59,6 +59,16 @@ return {
 		},
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
+			-- Disable blink.cmp for filetypes handled by CoC
+			per_filetype = {
+				typescript = {},
+				typescriptreact = {},
+				javascript = {},
+				javascriptreact = {},
+				rust = {},
+				c = {},
+				cpp = {},
+			},
 			-- Per-source timeout
 			providers = {
 				buffer = {

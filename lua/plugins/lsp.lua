@@ -1,5 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
+	enabled = false, -- Disabled: using CoC instead
 	dependencies = {
 		"mason-org/mason-lspconfig.nvim",
 		{
@@ -56,8 +57,7 @@ return {
 			"lua_ls",
 			"clangd",
 			"gopls",
-			"vtsls",
-			"rust_analyzer",
+			-- "vtsls",
 			"denols",
 		})
 	end,

@@ -22,11 +22,14 @@ return {
     wk.setup(opts)
     -- Register key groups
     wk.add({
+      { "<leader>a", group = "Actions" },
       { "<leader>b", group = "Buffer" },
-      { "<leader>c", group = "Code" },
+      { "<leader>c", group = "Code/CoC" },
       { "<leader>f", group = "Find" },
       { "<leader>g", group = "Git" },
       { "<leader>h", group = "Hunk" },
+      { "<leader>q", group = "Quit/Fix" },
+      { "<leader>r", group = "Refactor/Rename" },
       { "<leader>s", group = "Symbols" },
       -- gh.nvim keybindings
       { "<leader>gh", group = "Github" },
