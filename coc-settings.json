@@ -69,5 +69,6 @@
     "--clang-tidy",
     "--completion-style=detailed",
     "--header-insertion=iwyu"
-  ]
+  ],
+  "svelte.enable-ts-plugin": true
 }

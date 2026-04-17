@@ -55,3 +55,27 @@ end, { desc = "Next error/warning todo comment" })
 
 -- Gi blame
 map("n", "<Leader>gbb", "<Cmd>BlameToggle<CR>", opts)
+
+-- Toggle Blink completion (alternative to CoC)
+map("n", "<leader>tb", function()
+	local blink_ok, lazy = pcall(require, "lazy")
+	if not blink_ok then
+		vim.notify("Lazy not found", vim.log.levels.ERROR)
+		return
+	end
+	
+	local blink_spec = lazy.plugins()["blink.cmp"]
+	if not blink_spec then
+		vim.notify("Blink.cmp not installed", vim.log.levels.ERROR)
+		return
+	end
+	
+	local enabled = blink_spec.enabled
+	blink_spec.enabled = not enabled
+	
+	-- Reload blink
+	require("lazy").reload({ plugins = "blink.cmp" })
+	
+	local status = blink_spec.enabled and "enabled" or "disabled"
+	vim.notify("Blink.cmp " .. status, vim.log.levels.INFO)
+end, { desc = "Toggle Blink completion (CoC is default)" })

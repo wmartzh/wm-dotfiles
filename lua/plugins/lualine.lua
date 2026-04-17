@@ -37,7 +37,17 @@ return {
             }
           },
         },
-        lualine_c = {},
+        lualine_c = {
+          {
+            function()
+              local reg = vim.fn.reg_recording()
+              if reg == "" then
+                return ""
+              end
+              return "@" .. reg
+            end,
+          },
+        },
         lualine_x = {
           {
             function()

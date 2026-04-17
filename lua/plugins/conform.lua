@@ -9,7 +9,7 @@ return {
 			["markdown"] = { "prettierd", stop_after_first = true },
 			["typescript"] = { "prettierd", stop_after_first = true },
 			["typescriptreact"] = { "prettierd", stop_after_first = true },
-			["go"] = { "goimports" },
+			["go"] = { "gofmt", "goimports" },
 			["c"] = { "clang_format" },
 			["cpp"] = { "clang_format" },
 			["*"] = { "trim_whitespace" },
