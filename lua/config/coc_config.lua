@@ -67,7 +67,10 @@ vim.api.nvim_create_autocmd("CursorHold", {
 -- Symbol renaming
 keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true, desc = "Rename symbol" })
 
--- Formatting handled by conform.nvim (see keymaps.lua)
+-- Formatting
+keyset("n", "<leader>cf", function()
+	vim.fn.CocActionAsync('runCommand', 'editor.action.formatDocument')
+end, { silent = true, desc = "Format document (CoC)" })
 
 -- Code actions
 keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", { silent = true, nowait = true, desc = "Code action (selected)" })

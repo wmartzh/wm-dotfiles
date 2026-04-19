@@ -15,17 +15,9 @@ return {
 			["*"] = { "trim_whitespace" },
 			["lua"] = { "stylua" },
 			["rust"] = { "rustfmt" },
+			["svelte"] = { "prettierd", stop_after_first = true },
+			["vue"] = { "prettierd", stop_after_first = true },
 		},
-		format_on_save = function(bufnr)
-			-- Disable format_on_save for large files
-			local lines = vim.api.nvim_buf_line_count(bufnr)
-			if lines > 5000 then
-				return nil
-			end
-			return {
-				timeout_ms = 1000,
-				lsp_format = "fallback",
-			}
-		end,
+		-- format_on_save disabled - use <leader>f to format manually
 	},
 }
