@@ -28,6 +28,11 @@ vim.opt.cursorline = true
 -- Set line numbers
 vim.o.number = true
 vim.opt.relativenumber = true -- Show relative numbers for all other lines
+-- Set a single column at 120 characters
+vim.opt.colorcolumn = "120"
+
+-- Or, set multiple columns (e.g., at 80 and 120)
+vim.opt.colorcolumn = "120"
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -60,7 +65,6 @@ vim.o.foldcolumn = "1"
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
-
 -- [Vim commans]
 
 vim.cmd.colorscheme("tokyonight")

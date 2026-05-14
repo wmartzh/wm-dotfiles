@@ -1,5 +1,4 @@
 {
-  "coc.preferences.maxCompleteItemCount":50,
   "diagnostic": {
     "signs": true,
     "virtualText": true,
@@ -9,7 +8,9 @@
     "errorSign": " ",
     "warningSign": " ",
     "infoSign": " ",
-    "hintSign": " "
+    "hintSign": " ",
+    "refreshOnInsertMode":false,
+    "triggerCompletionWait": 100
   },
   "suggest": {
     "timeout": 5000,
@@ -21,15 +22,18 @@
     "maxCompleteItemCount": 30
   },
   "tsserver.enable": true,
-  "tsserver.useLocalTsdk": false,
+  "tsserver.useLocalTsdk": true,
   "tsserver.maxTsServerMemory": 4096,
   "tsserver.disableAutomaticTypeAcquisition": false,
   "tsserver.implicitProjectConfig.checkJs": false,
   "tsserver.enableTracing": false,
   "tsserver.reportStyleChecksAsWarnings": true,
-  "tsserver.implicitProjectConfig.module": "NodeNext",
   "tsserver.useSyntaxServer": "auto",
-
+  "tsserver.watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriorityPolling"
+  },
 
   "typescript.preferences.autoImportFileExcludePatterns": [
     "**/dist/**",
@@ -45,7 +49,10 @@
   "typescript.workspaceSymbols.scope": "currentProject",
   "typescript.format.insertSpaceAfterCommaDelimiter": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-
+  "typescript.referencesCodeLens.enabled": false,
+  "typescript.implementationsCodeLens.enabled": false,
+  "typescript.inlayHints.variableTypes.enabled": false,
+  "typescript.inlayHints.parameterNames.enabled": "literals",
   "javascript.preferences.importModuleSpecifier": "relative",
   "javascript.preferences.quoteStyle": "single",
   "javascript.suggest.autoImports": true,

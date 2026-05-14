@@ -31,10 +31,11 @@ return {
 			trigger = {
 				show_on_keyword = true,
 				show_in_snippet = false,
-				debounce_ms = 100,
+				debounce_ms = 150,
+				min_keyword_length = 2,
 			},
 			list = {
-				max_items = 30,
+				max_items = 15,
 				selection = {
 					preselect = true,
 					auto_insert = false,
@@ -47,7 +48,7 @@ return {
 			},
 			documentation = {
 				auto_show = true,
-				auto_show_delay_ms = 500,
+				auto_show_delay_ms = 300,
 				window = {
 					border = "single",
 				},
@@ -59,6 +60,15 @@ return {
 		},
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
+			providers = {
+				buffer = {
+					opts = {
+						get_bufnrs = function()
+							return { vim.api.nvim_get_current_buf() }
+						end,
+					},
+				},
+			},
 		},
 		signature = {
 			enabled = true,

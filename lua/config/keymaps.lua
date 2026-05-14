@@ -53,6 +53,9 @@ vim.keymap.set("n", "]t", function()
 	require("todo-comments").jump_next({ keywords = { "ERROR", "WARNING" } })
 end, { desc = "Next error/warning todo comment" })
 
+-- CoC restart (clears tsserver memory leak)
+map("n", "<leader>cR", "<Cmd>CocRestart<CR>", { desc = "Restart CoC" })
+
 -- Gi blame
 map("n", "<Leader>gbb", "<Cmd>BlameToggle<CR>", opts)
 
