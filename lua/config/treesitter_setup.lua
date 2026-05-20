@@ -4,7 +4,7 @@
 local filetypes = {
   'lua', 'c', 'cpp', 'javascript', 'typescript',
   'html', 'go', 'bash', 'json', 'rust',"jsx","tsx",
-  'svelte', 'vue', 'markdown', 'yaml'
+  'svelte', 'vue', 'markdown', 'yaml', "astro"
 }
 
 -- Enable treesitter highlighting

@@ -13,7 +13,7 @@ return {
         "html", "go", "bash", "json", "markdown",
         "markdown_inline", "yaml", "dot", "rust",
         "html_tags",  -- dependency for svelte
-        "svelte", "vue"
+        "svelte", "vue", "astro"
       }
       require('nvim-treesitter').install(langs)
     end
