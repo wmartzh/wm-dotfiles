@@ -12,10 +12,13 @@ return {
         "lua", "c", "cpp", "javascript", "typescript",
         "html", "go", "bash", "json", "markdown",
         "markdown_inline", "yaml", "dot", "rust",
+        "jsx","tsx",
         "html_tags",  -- dependency for svelte
-        "svelte", "vue", "astro"
+        "svelte", "vue", "astro","jsx","tsx"
       }
-      require('nvim-treesitter').install(langs)
+      require('nvim-treesitter.config').setup({
+        ensure_installed=langs
+      })
     end
   },
 }

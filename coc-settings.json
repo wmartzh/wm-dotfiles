@@ -13,17 +13,17 @@
     "triggerCompletionWait": 100
   },
   "suggest": {
-    "timeout": 5000,
+    "timeout": 1500,
     "noselect": false,
-    "enablePreselect": true,
+    "enablePreselect": false,
     "triggerAfterInsertEnter": false,
     "autoTrigger": "always",
-    "minTriggerInputLength": 2,
+    "minTriggerInputLength": 3,
     "maxCompleteItemCount": 30
   },
   "tsserver.enable": true,
   "tsserver.useLocalTsdk": true,
-  "tsserver.maxTsServerMemory": 4096,
+  "tsserver.maxTsServerMemory": 2048,
   "tsserver.disableAutomaticTypeAcquisition": false,
   "tsserver.implicitProjectConfig.checkJs": false,
   "tsserver.enableTracing": false,
@@ -65,7 +65,7 @@
   "rust-analyzer.enable": true,
   "rust-analyzer.cargo.buildScripts.enable": true,
   "rust-analyzer.cargo.target": "target/ra",
-  "rust-analyzer.procMacro.enable": false,
+  "rust-analyzer.procMacro.enable": true,
   "rust-analyzer.check.command": "clippy",
   "rust-analyzer.completion.autoimport.enable": true,
 

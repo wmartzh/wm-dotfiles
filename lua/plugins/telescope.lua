@@ -26,8 +26,8 @@ return {
 						"%.lock",
 					},
 					preview = {
-						treesitter = false, -- Disable treesitter in preview for speed
-					},
+						treesitter = false, 
+          },
 					cache_picker = {
 						num_pickers = 5,
 					},

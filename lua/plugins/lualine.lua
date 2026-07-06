@@ -1,6 +1,7 @@
 return {
   {
     "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
     opts = {
       options = {
         theme = "auto",
@@ -9,9 +10,9 @@ return {
         always_divide_middle = true,
       },
       refresh = {
-        statusline = 3000,
-        tabline = 3000,
-        winbar = 3000,
+        statusline = 1000,
+        tabline = 1000,
+        winbar = 1000,
       },
       sections = {
         lualine_a = {

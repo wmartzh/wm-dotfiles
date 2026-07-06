@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
   opts = {
     preset = "helix",
-    delay = 300, -- Show after 300ms
+    delay = 200, -- Show after 300ms
     triggers = {
       { "<auto>", mode = "nxso" }, -- Auto triggers for all modes
     },

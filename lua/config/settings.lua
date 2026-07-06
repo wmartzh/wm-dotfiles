@@ -28,27 +28,39 @@ vim.opt.cursorline = true
 -- Set line numbers
 vim.o.number = true
 vim.opt.relativenumber = true -- Show relative numbers for all other lines
--- Set a single column at 120 characters
-vim.opt.colorcolumn = "120"
+-- Set a single column at 100 characters
+vim.opt.colorcolumn = "100"
 
--- Or, set multiple columns (e.g., at 80 and 120)
-vim.opt.colorcolumn = "120"
+-- Swap and split behavior
+vim.o.swapfile = false 
+vim.o.splitbelow = true
+vim.o.splitright = true
+
+-- Mouse support
+vim.o.mouse = "a"
+
+-- Scrolloff for better context
+vim.o.scrolloff = 8
+vim.o.sidescrolloff = 8
 
 -- Enable break indent
 vim.o.breakindent = true
 
 -- Save undo history
 vim.o.undofile = true
+vim.o.undodir = vim.fn.stdpath("data") .. "/undo"
+-- Create dir if not exist
+vim.fn.mkdir(vim.o.undodir, "p")
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.o.signcolumn = "yes"
+vim.o.signcolumn = "auto:2"
 
 -- Decrease update time
-vim.o.updatetime = 250
+vim.o.updatetime = 300
 
 -- Matchparen performance (reduce timeout in insert mode)
 vim.g.matchparen_timeout = 100
@@ -99,7 +111,10 @@ vim.diagnostic.config({
 	},
 	-- You can configure other diagnostic features here as well
 	underline = true,
-	virtual_text = true, -- Set to true to see messages inline
+	virtual_text = {
+		severity = { min = vim.diagnostic.severity.WARN }, -- Only show warnings and errors
+		source = "if_many", -- Show source if multiple providers
+	},
 	update_in_insert = false,
 })
 

@@ -5,10 +5,6 @@
 vim.opt.backup = false
 vim.opt.writebackup = false
 
--- Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
--- delays and poor user experience
-vim.opt.updatetime = 300
-
 -- Always show the signcolumn, otherwise it would shift the text each time
 -- diagnostics appeared/became resolved
 vim.opt.signcolumn = "yes"
@@ -117,7 +113,7 @@ vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", { n
 vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'editor.action.organizeImport')", { desc = "Organize imports" })
 
 -- Statusline support
-vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
+-- vim.opt.statusline:prepend("%{coc#status()}%{get(b:,'coc_current_function','')}")
 
 -- CoC list mappings
 keyset("n", "<leader>ce", ":<C-u>CocDiagnostics<cr>", { silent = true, nowait = true, desc = "Buffer diagnostics" })

@@ -1,11 +1,9 @@
 return {
 	{
-		"rebelot/kanagawa.nvim",
-	},
-	{
 		"folke/tokyonight.nvim",
 		name = "tokyonight",
-
+    lazy=false, 
+    priority=1000,
 		opts = {
 			style = "night",
 			terminal_colors = true,

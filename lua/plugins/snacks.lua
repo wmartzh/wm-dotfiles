@@ -37,7 +37,7 @@ return {
 		statuscolumn = { enabled = true },
 		words = {
 			enabled = true,
-			debounce = 300, -- Add debounce to reduce word highlight frequency
+			debounce = 500, -- Add debounce to reduce word highlight frequency
 		},
 	},
 	keys = {

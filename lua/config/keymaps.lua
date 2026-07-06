@@ -1,5 +1,8 @@
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
+
+map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
+
 --  See `:help wincmd` for a list of all window commands
 map("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
@@ -11,12 +14,17 @@ map({ "n", "i" }, "<C-s>", "<cmd>w<cr>", { desc = "Save File" })
 
 -- Quit Neovim with <leader>qq in Normal mode
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+map("n", "<leader>qa", "<cmd>qa!<cr>", { desc = "Quit All (force)" })
 
 -- Bufferline navigation
 -- map("n", "L", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
 -- map("n", "H", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous Buffer" })
 -- map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Close Buffer" })
 --- Buffers
+-- Quick buffer navigation with Shift+H/L
+map("n", "<S-l>", "<Cmd>bnext<CR>", { desc = "Next buffer", noremap = true, silent = true })
+map("n", "<S-h>", "<Cmd>bprevious<CR>", { desc = "Prev buffer", noremap = true, silent = true })
+-- Alternative leader-based navigation
 map("n", "<leader>bn", "<Cmd>bnext<CR>", opts)
 -- <Leader>bp -> Buffer Previous
 map("n", "<Leader>bp", "<Cmd>bprevious<CR>", opts)
@@ -49,7 +57,7 @@ vim.keymap.set("n", "[t", function()
 	require("todo-comments").jump_prev()
 end, { desc = "Previous todo comment" })
 
-vim.keymap.set("n", "]t", function()
+vim.keymap.set("n", "]T", function()
 	require("todo-comments").jump_next({ keywords = { "ERROR", "WARNING" } })
 end, { desc = "Next error/warning todo comment" })
 
@@ -59,26 +67,32 @@ map("n", "<leader>cR", "<Cmd>CocRestart<CR>", { desc = "Restart CoC" })
 -- Gi blame
 map("n", "<Leader>gbb", "<Cmd>BlameToggle<CR>", opts)
 
+-- Terminal toggle
+map("n", "<C-/>", function()
+	Snacks.terminal()
+end, { desc = "Toggle terminal" })
+map("t", "<C-/>", "<cmd>close<cr>", { desc = "Close terminal" })
+
 -- Toggle Blink completion (alternative to CoC)
-map("n", "<leader>tb", function()
-	local blink_ok, lazy = pcall(require, "lazy")
-	if not blink_ok then
-		vim.notify("Lazy not found", vim.log.levels.ERROR)
-		return
-	end
-	
-	local blink_spec = lazy.plugins()["blink.cmp"]
-	if not blink_spec then
-		vim.notify("Blink.cmp not installed", vim.log.levels.ERROR)
-		return
-	end
-	
-	local enabled = blink_spec.enabled
-	blink_spec.enabled = not enabled
-	
-	-- Reload blink
-	require("lazy").reload({ plugins = "blink.cmp" })
-	
-	local status = blink_spec.enabled and "enabled" or "disabled"
-	vim.notify("Blink.cmp " .. status, vim.log.levels.INFO)
-end, { desc = "Toggle Blink completion (CoC is default)" })
+-- map("n", "<leader>tb", function()
+-- 	local blink_ok, lazy = pcall(require, "lazy")
+-- 	if not blink_ok then
+-- 		vim.notify("Lazy not found", vim.log.levels.ERROR)
+-- 		return
+-- 	end
+--
+-- 	local blink_spec = lazy.plugins()["blink.cmp"]
+-- 	if not blink_spec then
+-- 		vim.notify("Blink.cmp not installed", vim.log.levels.ERROR)
+-- 		return
+-- 	end
+--
+-- 	-- local enabled = blink_spec.enabled
+-- 	-- blink_spec.enabled = not enabled
+--
+-- 	-- Reload blink
+-- 	require("lazy").reload({ plugins = "blink.cmp" })
+--
+-- 	local status = blink_spec.enabled and "enabled" or "disabled"
+-- 	vim.notify("Blink.cmp " .. status, vim.log.levels.INFO)
+-- end, { desc = "Toggle Blink completion (CoC is default)" })
